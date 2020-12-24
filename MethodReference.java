@@ -1,3 +1,7 @@
+import java.util.Comparator;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 //Method reference
 public class MethodReference {
 	public static void main(String[] args) {
@@ -9,15 +13,21 @@ public class MethodReference {
 		//method ref of arbratry obj
 		ArbtraryInterf a=MethodReference::methRefArbtrary;
 		int res=a.m1(new MethodReference(), 1);
-		System.out.println(res);
+		
+		Comparator<String> comp=String::compareToIgnoreCase;
+		int i=comp.compare("ABC", "abc");
+		System.out.println(i);
 
 		//method ref of static method
 		StaticInterf s=MethodReference::methRefStatic;
 		s.m2();
+		Comparator<Integer> comp1=Integer::compare;
 
 		//method ref of object type method
 		ObjRef o=new MethodReference()::methRefObjRef;
 		o.m3();
+		Consumer c=System.out::println;
+		
 	}
 
 	public int methRefArbtrary(int s) {

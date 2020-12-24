@@ -12,7 +12,6 @@ public class MultiThreadEvenAndOdd {
 }
 
 class Printer {
-	boolean isOdd = false;
 	int limit;
 	int conter = 1;
 
@@ -28,7 +27,7 @@ class Printer {
 					System.out.println("ODD: " + Thread.currentThread().getName() + conter++);
 					limit--;
 					notify();
-				}else {
+				} else {
 					try {
 						wait();
 					} catch (InterruptedException e) {
@@ -48,7 +47,7 @@ class Printer {
 					System.out.println("EVEN: " + Thread.currentThread().getName() + conter++);
 					limit--;
 					notify();
-				}else {
+				} else {
 					try {
 						wait();
 					} catch (InterruptedException e) {
